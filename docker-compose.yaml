@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  unet:
+    build: ./
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+              count: all
+    volumes:
+      - .:/home/
