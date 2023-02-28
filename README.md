@@ -15,7 +15,8 @@ Code has been tested with pytorch 1.12.1 and NVIDIA.
 this project utilize Dockerfile that contains images for training and visualization.   
 
 To run Train,  
-Put json file in this directory path (./trainval_train.json) or (./trainval_test.json) and Put images (./images_train/*.png) or (./images_test/*.png)
+Put json file in this directory path (./trainval_train.json) or (./trainval_test.json)   
+and Put images (./images_train/*.png) or (./images_test/*.png)  
 I referenced [labelme](https://github.com/wkentaro/labelme) and [labelme2coco](https://github.com/fcakyon/labelme2coco)
 
 ```
