@@ -9,8 +9,8 @@ services:
       resources:
         reservations:
           devices:
-            - driver: nvidia
-              capabilities: [gpu]
-              count: all
+          - driver: nvidia
+            capabilities: [gpu]
+            count: all
     volumes:
       - .:/home/
