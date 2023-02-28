@@ -29,3 +29,9 @@ docker-compose run unet python [options]
   train.py   
   mIoU_show.py  
   mIoU.py
+  
+
+```
+docker pull nvcr.io/nvidia/pytorch:22.04-py3
+```
+(if you fall into error when you make images, you can use here first.)
