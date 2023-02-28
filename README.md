@@ -25,10 +25,10 @@ docker-compose up
 ```
 docker-compose run unet python [options]
 ```
-- options  
-  train.py   
-  mIoU_show.py  
-  mIoU.py
+- options:  
+  - train.py   
+  - mIoU_show.py  
+  - mIoU.py
   
 
 ```
