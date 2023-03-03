@@ -35,3 +35,7 @@ docker-compose run unet python [options]
 docker pull nvcr.io/nvidia/pytorch:22.04-py3
 ```
 (if you fall into error when you make images, you can use here first.)
+
+#### Docker - Display 
+I use xserver. You can use the xhost+ command.  
+In Dockerfile, ENV DISPLAY=<insert your IP>:0
