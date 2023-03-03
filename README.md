@@ -6,7 +6,7 @@ I need semantic segmentation Network operating in gray-scale images.
 So I use and test U-Net.
 
 ## Reference  
-I use [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://link.springer.com/chapter/10.1007/978-3-319-24574-4_28#auth-Thomas-Brox)
+I referenced [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://link.springer.com/chapter/10.1007/978-3-319-24574-4_28#auth-Thomas-Brox)
 
 ## Setup environment  
 Code has been tested with pytorch 1.12.1 and cuda 11.2. 
