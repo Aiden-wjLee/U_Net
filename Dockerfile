@@ -39,7 +39,6 @@ RUN pip install pandas
 
 ENV TORCH_CUDA_ARCH_LIST="compute capability"
 
-
 #ENV CUDA_HOME=/usr/local/cuda-11.2
 ENV DEBIAN_FRONTEND=newt
 ENV DISPLAY=192.168.50.163:0
