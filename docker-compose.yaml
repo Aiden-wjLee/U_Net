@@ -16,8 +16,5 @@ services:
             count: all
     volumes:
       - .:/home/
-<<<<<<< Updated upstream
-=======
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
     container_name: unet
->>>>>>> Stashed changes
