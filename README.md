@@ -9,7 +9,7 @@ So I use and test U-Net.
 I use [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://link.springer.com/chapter/10.1007/978-3-319-24574-4_28#auth-Thomas-Brox)
 
 ## Setup environment  
-Code has been tested with pytorch 1.12.1 and NVIDIA. 
+Code has been tested with pytorch 1.12.1 and cuda 11.2. 
 
 ## Train and Visualization
 this project utilize Dockerfile that contains images for training and visualization.   
@@ -25,7 +25,13 @@ docker-compose up
 ```
 docker-compose run unet python [options]
 ```
-- options  
-  train.py   
-  mIoU_show.py  
-  mIoU.py
+- options:  
+  - train.py   
+  - mIoU_show.py  
+  - mIoU.py
+  
+
+```
+docker pull nvcr.io/nvidia/pytorch:22.04-py3
+```
+(if you fall into error when you make images, you can use here first.)

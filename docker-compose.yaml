@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  unet:
+    build: ./
+    stdin_open: true
+    tty: true
+    security_opt:
+      - seccomp=unconfined
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            capabilities: [gpu]
+            count: all
+    volumes:
+      - .:/home/
+<<<<<<< Updated upstream
+=======
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+    container_name: unet
+>>>>>>> Stashed changes
