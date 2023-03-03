@@ -11,12 +11,14 @@ def main():
 
     #image 정보
     #folder = 'D:/OneDrive - Sogang/Sogang/22_winter/CV_study/learn_model/U_Net' 
-    folder = './' 
+    json_name='trainval_test'
+    folder = './images'
     classes = ['FC','IN']
-    mode = 'trainval'
-    input_image_size_ = (256,256)
+    image_folder = 'images_test'
+    input_image_size_ = (32,32)
     mask_type = 'normal'
-    images, dataset_size, coco = filterDataset(folder, classes,  mode)
+    
+    images, dataset_size, coco = filterDataset(folder, classes,  json_name)
 
     #디바이스 및 네트워크 
     device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -67,7 +69,7 @@ def main():
         loss_arr = []
         
         val_gen = dataGeneratorCoco(images, classes, coco, folder,
-        input_image_size_, batch_size, mode, mask_type)
+        input_image_size_, batch_size, json_name, mask_type)
 
         for batch, (inputs,label) in enumerate(val_gen): # 1은 뭐니 > index start point
             inputs=1/3*inputs[:,:,:,0]+1/3*inputs[:,:,:,1]+1/3*inputs[:,:,:,2]

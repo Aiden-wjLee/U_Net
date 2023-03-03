@@ -1,10 +1,10 @@
 from UNet import *
 
-def filterDataset(folder, classes=None, mode='train'):    
+def filterDataset(folder, classes=None, json_name='images_test'):    
     """
     initialize COCO api for instance annotations
     """
-    annFile = '{}/{}.json'.format(folder, mode)
+    annFile = '{}/{}.json'.format(folder, json_name)
     coco = COCO(annFile)
     
     images = []
@@ -45,7 +45,8 @@ def getClassName(classID, cats):
 
 def getImage(imageObj, img_folder, input_image_size):
     # Read and normalize an image
-    train_img = io.imread(img_folder + '/' + imageObj['file_name'])/255.0
+    train_img = io.imread(img_folder + '/' + imageObj['file_name'].replace('\\', '/'))/255.0
+    #print((img_folder + '/' + imageObj['file_name'].replace('\\', '/')))
 
     train_img=0.2126*train_img[:,:,0]+0.7152*train_img[:,:,1]+0.0722*train_img[:,:,2] ###변환 공식 사용
     ###train_img=cv2.resize(train_img,(256,256))
@@ -117,7 +118,7 @@ def dataGeneratorCoco(images, classes, coco, folder,
             와 같이 사용했다. 
             https://www.daleseo.com/python-yield/
     '''
-    img_folder = '{}/{}'.format(folder, mode)
+    img_folder = folder
     dataset_size = len(images)
     catIds = coco.getCatIds(catNms=classes)
     
@@ -136,10 +137,7 @@ def dataGeneratorCoco(images, classes, coco, folder,
                 train_mask = getBinaryMask(imageObj, coco, catIds, input_image_size)
             
             elif mask_type=="normal":
-                train_mask = getNormalMask(imageObj, classes, coco, catIds, input_image_size)   
-                ##cv2.imshow("ab",train_mask.squeeze())
-                ##cv2.imshow("as",train_img.squeeze())
-                ##cv2.waitKey(0)      #확인용 cv2        
+                train_mask = getNormalMask(imageObj, classes, coco, catIds, input_image_size)      
             
             # Add to respective batch sized arrays
             

@@ -50,17 +50,19 @@ def main():
 
     import os
     #파일이름 리스트 불러오기
-    os.chdir('./BEST')
-    print(os.getcwd())
-
+    
+    
 
     #folder = 'D:/OneDrive - Sogang/Sogang/22_winter/CV_study/learn_model/U_Net'
-    folder = '/home/'
+    #folder = '/home/'
+    json_name='trainval_test'
+    folder = './images'
     classes = ['FC','IN']
-    mode = 'trainval_test'
-    input_image_size_ = (256,256)
+    image_folder = 'images_test'
+    input_image_size_ = (32,32)
     mask_type = 'normal'
-    images, dataset_size, coco = filterDataset(folder, classes,  mode)
+    
+    images, dataset_size, coco = filterDataset(folder, classes,  json_name)
     device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     #network & loss &optimizer
@@ -78,7 +80,7 @@ def main():
         net_test.eval() # 네트워크를 evaluation 용으로 선언
         loss_arr = []
         val_gen = dataGeneratorCoco(images, classes, coco, folder,
-            input_image_size_, batch_size, mode, mask_type)
+            input_image_size_, batch_size, json_name, mask_type)
 
         for batch, (inputs,label) in enumerate(val_gen): 
             # forward

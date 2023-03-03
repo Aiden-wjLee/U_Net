@@ -5,6 +5,8 @@ services:
     build: ./
     stdin_open: true
     tty: true
+    security_opt:
+      - seccomp=unconfined
     deploy:
       resources:
         reservations:
@@ -14,3 +16,8 @@ services:
             count: all
     volumes:
       - .:/home/
+<<<<<<< Updated upstream
+=======
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+    container_name: unet
+>>>>>>> Stashed changes
